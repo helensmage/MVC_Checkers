@@ -1,7 +1,8 @@
 #pragma once
 
-class IView
+#include "IObserver.h"
+
+class IView : public IObserver
 {
-public:
-    virtual void draw() = 0;
+
 };

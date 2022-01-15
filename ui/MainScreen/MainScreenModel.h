@@ -10,9 +10,8 @@
 #include <cmath>
 #include <algorithm>
 
-using movePos = std::pair<pos, pos>;
-
-class MainScreenModel : public IModel { 
+class MainScreenModel : public IModel
+{
 public:
    MainScreenModel(GameStatusStore* model);
    void update();
@@ -23,11 +22,17 @@ public:
    std::string GetCurrentPlayer() const;
    GameStatusStore::Player GetWinner() const;
    bool GetDirection() const;
-   movePos GetMove(std::string line1, std::string line2);
+   std::pair<pos, pos> GetMove();
    void UpdateScore();
    void SwitchPlayer();
    std::string CastPlayer(GameStatusStore::Player player) const;
    void ChangeSurrender();
+   void FillLines(char c);
+   bool CheckLines();
+   std::string GetCurrentLine1() const;
+   std::string GetCurrentLine2() const;
+   void IncreaseTimes();
+   int GetTimes() const;
 
 private:
    GameStatusStore* _model;

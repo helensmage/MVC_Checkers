@@ -2,6 +2,8 @@
 
 #include "CellModel.h"
 #include "../../common/IView.h"
+#include "../../common/IObserver.h"
+#include "../../common/Observable.h"
 
 #include <iostream>
 #include <stdlib.h>
@@ -12,9 +14,10 @@
 class CellView: public IView
 {
 public:
-   CellView(CellModel* model);
-   void draw();
+  CellView(CellModel* model);
+  virtual void draw();
+  virtual void onUpdate(Observable* o);
 
 private:
-   CellModel* _model;
+  CellModel* _model;
 };

@@ -1,20 +1,12 @@
-#include "IView.h"
+#include "Observable.h"
 
-#include <vector>
+void Observable::addObserver(IObserver* observer) {
+  _observers.push_back(observer);
+}
 
-class Observable
-{
-public:
-    void addObserver(IView* observer) {
-      _observers.push_back(observer);
-    }
-    void notifyUpdate() {
-      int size = _observers.size();
-      for (int i = 0; i < size; i++)
-      {
-         _observers[i]->draw();
-      }
-   }
-private:
-   std::vector<IView*> _observers;
-};
+void Observable::notifyUpdate() {
+  int size = _observers.size();
+  for (int i = 0; i < size; i++) {
+    _observers[i]->onUpdate(this);
+  }
+}

@@ -6,12 +6,15 @@
 class GameStatusStore
 {
 public:
-  GameStatusStore() : mWhiteScore(0), mBlackScore(0), mLastPlayer(Player::NONE), bIsSurrender(false) {}
+  GameStatusStore();
   enum class Player { NONE, BLACK, WHITE };
   bool bIsSurrender;
   BoardModel mboard;
-  BoardView* v = new BoardView(&mboard);
+  BoardView* v;
   size_t mWhiteScore;
   size_t mBlackScore;
   Player mLastPlayer;
+  std::string line1;
+  std::string line2;
+  int times;
 };

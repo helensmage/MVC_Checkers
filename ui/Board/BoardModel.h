@@ -2,10 +2,9 @@
 
 #include "../Cell/CellModel.h"
 #include "../../common/IModel.h"
+#include "../../ui/Cell/CellView.h"
 
 #include <map>
-
-using map1 = std::map<pos, CellModel>;
 
 class BoardModel : public IModel
 {
@@ -15,11 +14,11 @@ public:
   ~BoardModel();
   void ResetMap();
   MoveResult MakeMove(const pos& startPos, const pos& endPos, bool direction, bool forceCombat = false);
-  map1& GetMap() { return mCells; }
-  void update() { notifyUpdate(); }
+  std::map<pos, CellModel>& GetMap();
+  void update();
 
 private:
   MoveResult CheckMove(const pos& startPos, const pos& endPos, bool direction);
   const size_t mBoardSize;
-  map1 mCells;
+  std::map<pos, CellModel> mCells;
 };

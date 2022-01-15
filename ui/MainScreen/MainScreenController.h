@@ -8,18 +8,17 @@
 
 #include <iostream>
 #include <stdlib.h>
+#include <conio.h>
 #include <vector>
 #include <cmath>
 #include <algorithm>
 
-
-using movePos = std::pair<pos, pos>;
-
-class MainScreenController : public IController {
+class MainScreenController : public IController
+{
 public:
-   MainScreenController(MainScreenModel* model);
-   void start();
+  MainScreenController(MainScreenModel* model);
+  void start();
 
 private:
-   MainScreenModel* _model;
+  MainScreenModel* _model;
 };
